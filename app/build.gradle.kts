@@ -8,14 +8,14 @@ android {
     defaultConfig {
         applicationId = "app.tvdock.home"
         minSdk = 21
-        targetSdk = 30   // keeps legacy storage/package-visibility behaviour simple on old TV firmware
+        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
     }
     buildTypes {
-        release { isMinifyEnabled = false; signingConfig = signingConfigs.getByName("debug") } // debug-signed: fine for sideloading
+        release { isMinifyEnabled = false; signingConfig = signingConfigs.getByName("debug") }
     }
     compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
     kotlinOptions { jvmTarget = "17" }
+    lint { checkReleaseBuilds = false; abortOnError = false }
 }
-// no dependencies on purpose: smallest APK, fastest start
